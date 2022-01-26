@@ -1,3 +1,7 @@
 export { default as Navbar } from './Navbar/Navbar'
-export { default as Layout } from './Layout/Layout'
 export { default as Footer } from './Footer/Footer'
+export { default as Homepage } from './Homepage/Homepage'
+export { default as Exchanges } from './Exchanges/Exchanges'
+export { default as Currencies } from './Currencies/Currencies'
+export { default as Details } from './Details/Details'
+export { default as News } from './News/News'

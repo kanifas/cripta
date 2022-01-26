@@ -9,12 +9,12 @@ import React from 'react';
 //     MenuOutlined,
 // } from '@ant-design/icons'
 
-const Layout = () => {
+const Homepage = () => {
     return (
         <div>
-            Layout
+            Home
         </div>
     );
 };
 
-export default Layout;
+export default Homepage;

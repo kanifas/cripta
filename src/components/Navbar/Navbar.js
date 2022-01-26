@@ -8,7 +8,7 @@ import {
     FundOutlined,
     MenuOutlined,
 } from '@ant-design/icons'
-import logo from '../images/logo.png'
+import logo from '../images/logo.svg'
 
 const Navbar = () => {
     return (
@@ -16,7 +16,7 @@ const Navbar = () => {
             <div className="logo-container">
                 <Avatar src={logo} size="large" />
                 <Typography.Title level={2} className="logo">
-                    <Link to="/">Крипта</Link>
+                    <Link to="/">Cripta</Link>
                     {/* <Button className="menu-control-container">
 
                     </Button> */}
@@ -27,7 +27,7 @@ const Navbar = () => {
                     <Link to="/">Домой</Link>
                 </Menu.Item>
                 <Menu.Item icon={<FundOutlined />}>
-                    <Link to="/cryptocurrencies">Криптовалюты</Link>
+                    <Link to="/currencies">Криптовалюты</Link>
                 </Menu.Item>
                 <Menu.Item icon={<MoneyCollectOutlined />}>
                     <Link to="/exchanges">Курс</Link>
