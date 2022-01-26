@@ -1,13 +1,7 @@
-import React from 'react';
-// import { Button, Menu, Typography, Avatar } from 'antd'
-// import { Link } from 'react-router-dom'
-// import {
-//     HomeOutlined,
-//     MoneyCollectionOutlined,
-//     BulpOutlined,
-//     FundOutlined,
-//     MenuOutlined,
-// } from '@ant-design/icons'
+import React from 'react'
+import millify from 'millify'
+import { Col, Row, Typography, Statistic } from 'antd'
+import { Link } from 'react-router-dom'
 
 const Homepage = () => {
     return (
