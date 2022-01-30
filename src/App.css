@@ -30,7 +30,9 @@ a:hover{
 .main{
     flex: 0.8;
     width: 100%;
-    
+}
+.main-contant {
+    min-height: 100vh !important;
 }
 .routes{
     padding: 20px;
@@ -51,8 +53,8 @@ a:hover{
     align-items: center;
     width: 100%;
 }
-.logo{
-    margin:0 0 0 15px;
+.logo {
+    margin: 0 0 0 15px !important;
 }
 .logo a{
    color: white;

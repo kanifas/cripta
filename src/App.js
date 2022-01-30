@@ -20,7 +20,7 @@ const App = () => {
                 <Navbar />
             </div>
             <div className="main">
-                <Layout>
+                <Layout className="main-contant">
                     <div className="routes">
                         <Routes>
                             <Route exact path="/" element={<Homepage />} />

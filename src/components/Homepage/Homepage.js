@@ -9,7 +9,6 @@ import {
 } from 'antd'
 
 import { useGetCryptosQuery } from '../../services/cryptoApi'
-//console.log(cryptoApi)
 
 import {
     Currencies,
