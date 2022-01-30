@@ -23,16 +23,16 @@ const Navbar = () => {
                 </Typography.Title>
             </div>
             <Menu theme="dark">
-                <Menu.Item icon={<HomeOutlined />}>
+                <Menu.Item icon={<HomeOutlined />} key="home">
                     <Link to="/">Домой</Link>
                 </Menu.Item>
-                <Menu.Item icon={<FundOutlined />}>
+                <Menu.Item icon={<FundOutlined />} key="currencies">
                     <Link to="/currencies">Криптовалюты</Link>
                 </Menu.Item>
-                <Menu.Item icon={<MoneyCollectOutlined />}>
+                <Menu.Item icon={<MoneyCollectOutlined />} key="exchanges">
                     <Link to="/exchanges">Курс</Link>
                 </Menu.Item>
-                <Menu.Item icon={<BulbOutlined />}>
+                <Menu.Item icon={<BulbOutlined />} key="news">
                     <Link to="/news">Новенькое</Link>
                 </Menu.Item>
             </Menu>
