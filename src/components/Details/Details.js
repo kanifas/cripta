@@ -9,11 +9,20 @@ import {
     Select
 } from 'antd'
 import {
-    MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, TrophyOutlined, CheckOutlined, NumberOutlined, ThunderboltOutlined
+    MoneyCollectOutlined,
+    DollarCircleOutlined,
+    FundOutlined,
+    ExclamationCircleOutlined,
+    StopOutlined,
+    TrophyOutlined,
+    CheckOutlined,
+    NumberOutlined,
+    ThunderboltOutlined,
 } from '@ant-design/icons'
 
 import { useGetCryptoDetailsQuery, useGetCryptoHistoryQuery } from '../../services/cryptoApi'
 
+import { Loader } from '../'
 import { LineChart } from '../'
 
 const { Title, Text } = Typography
@@ -26,8 +35,7 @@ const Details = () => {
     const { data: coinHistory } = useGetCryptoHistoryQuery({ coinid, timeperiod })
     const details = data?.data?.coin;
 
-    // if (isFetching) return <Loader />;
-    if (isFetching) return 'Loading ...';
+    if (isFetching) return <Loader />;
 
     const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y']
 
