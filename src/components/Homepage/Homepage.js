@@ -37,18 +37,18 @@ const Homepage = () => {
             </Row>
             <div className="home-heading-container">
                 <Title level={2} className="home-title">Топ-10 криптовалют в мире</Title>
-                <Title level={3} className="show-more">
+                <Title level={5} className="show-more">
                     <Link to="/currencies">
-                        Показать еще
+                        Больше валют
                     </Link>
                 </Title>
             </div>
             <Currencies simplified />
             <div className="home-heading-container">
                 <Title level={2} className="home-title">Свежие крипто новости</Title>
-                <Title level={3} className="show-more">
+                <Title level={5} className="show-more">
                     <Link to="/news">
-                        Показать еще
+                        Больше новостей
                     </Link>
                 </Title>
             </div>
