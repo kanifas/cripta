@@ -14,6 +14,8 @@ import { useGetCryptosQuery } from '../../services/cryptoApi'
 
 import fakeImg from './fake.png'
 
+import { Loader } from '../'
+
 const { Text, Title } = Typography
 const { Option } = Select
 
@@ -25,7 +27,9 @@ const News = ({ simplified }) => {
     })
     const { data } = useGetCryptosQuery(100)
 
-    if (!news?.value) return 'Loading ...'
+    if (!news?.value) {
+        return <Loader />
+    }
 
     return (
         <Row gutter={[24, 24]}>
@@ -40,7 +44,7 @@ const News = ({ simplified }) => {
                         filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase() >= 0)}
                     >
                         <Option value="Cryptocurrency">Cryptocurrency</Option>
-                        {data?.data?.coins.map(coin => <Option value={coin.name}>{coin.name}</Option>)}
+                        {data?.data?.coins.map(({ name }) => <Option key={name} value={name}>{name}</Option>)}
                     </Select>
                 </Col>
             )}
