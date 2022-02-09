@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FC } from 'react';
 import { Button, Menu, Typography, Avatar } from 'antd'
 import { Link } from 'react-router-dom'
 import {
@@ -10,9 +10,9 @@ import {
 } from '@ant-design/icons'
 import logo from '../images/logo.svg'
 
-const Navbar = () => {
+const Navbar: FC = () => {
     const [activeMenu, setActiveMenu] = useState(true)
-    const [screenSize, setScreenSize] = useState(null)
+    const [screenSize, setScreenSize] = useState(null as unknown as number)
 
     useEffect(() => {
         const handleResize = () => setScreenSize(window.innerWidth)

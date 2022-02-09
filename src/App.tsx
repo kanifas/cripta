@@ -23,11 +23,11 @@ const App = () => {
                 <Layout className="main-contant">
                     <div className="routes">
                         <Routes>
-                            <Route exact path="/" element={<Homepage />} />
-                            <Route exact path="/exchanges" element={<Exchanges />} />
-                            <Route exact path="/currencies" element={<Currencies />} />
-                            <Route exact path="/crypto/:coinid" element={<Details />} />
-                            <Route exact path="/news" element={<News />} />
+                            <Route path="/" element={<Homepage />} />
+                            <Route path="/exchanges" element={<Exchanges />} />
+                            <Route path="/currencies" element={<Currencies />} />
+                            <Route path="/crypto/:coinid" element={<Details />} />
+                            <Route path="/news" element={<News />} />
                         </Routes>
                     </div>
                 </Layout>

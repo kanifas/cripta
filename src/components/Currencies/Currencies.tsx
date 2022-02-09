@@ -1,13 +1,19 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, FC } from 'react'
 import millify from 'millify'
 import { Link } from 'react-router-dom'
 import { Card, Row, Col, Input } from 'antd'
 
 import { useGetCryptosQuery } from '../../services/cryptoApi'
 
-import { Loader } from '../'
+import { Loader } from '..'
 
-const Currencies = ({ simplified }) => {
+import { TCurrency } from './types'
+
+interface IProps {
+    simplified?: boolean
+}
+
+const Currencies: FC<IProps> = ({ simplified }) => {
     const count = simplified ? 10 : 100;
     const { data: cryptoList, isFetching } = useGetCryptosQuery(count)
     const [cryptos, setCryptos] = useState(cryptoList?.data?.coins)
@@ -15,7 +21,7 @@ const Currencies = ({ simplified }) => {
 
     useEffect(() => {
         const filteredData = cryptoList?.data?.coins.filter(
-            coin => coin.name.toLowerCase().includes(searchTerm.toLowerCase())
+            (coin: {name: string}) => coin.name.toLowerCase().includes(searchTerm.toLowerCase())
         )
         setCryptos(filteredData)
     }, [cryptoList, searchTerm])
@@ -28,11 +34,15 @@ const Currencies = ({ simplified }) => {
         <>
             {!simplified && (
                 <div className="search-crypto">
-                    <Input placeholder="Фильтр по криптовалюте" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} />
+                    <Input
+                        placeholder="Фильтр по криптовалюте" 
+                        value={searchTerm} 
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) => setSearchTerm(event.target.value)}
+                    />
                 </div>
             )}
             <Row gutter={[32, 32]} className="crypto-card-container">
-                {cryptos?.map(currency => (
+                {cryptos?.map((currency: TCurrency) => (
                     <Col xs={24} sm={12} lg={6} className="crypto-card" key={currency.uuid}>
                         <Link to={`/crypto/${currency.uuid}`}>
                             <Card

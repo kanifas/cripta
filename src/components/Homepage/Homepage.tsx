@@ -8,12 +8,14 @@ import {
     Typography,
 } from 'antd'
 
-import { useGetCryptosQuery } from '../../services/cryptoApi'
+import { Loader } from '..'
 
 import {
     Currencies,
     News
-} from '../'
+} from '..'
+
+import { useGetCryptosQuery } from '../../services/cryptoApi'
 
 const { Title } = Typography
 
@@ -22,7 +24,7 @@ const Homepage = () => {
     const globalStats = data?.data?.stats
 
     if (isFetching) {
-        return 'Загрузка  ...'
+        return <Loader />
     }
 
     return (

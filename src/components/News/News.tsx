@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, FC } from 'react'
 import {
     Select,
     Typography,
@@ -12,14 +12,22 @@ import moment from 'moment'
 import { useGetCryptoNewsQuery } from '../../services/cryptoNewsApi'
 import { useGetCryptosQuery } from '../../services/cryptoApi'
 
+import { TNewsObject } from './types'
+
 import fakeImg from './fake.png'
 
-import { Loader } from '../'
+import { Loader } from '..'
+
+moment.locale('ru');
 
 const { Text, Title } = Typography
 const { Option } = Select
 
-const News = ({ simplified }) => {
+interface IProps {
+    simplified?: boolean
+}
+
+const News: FC<IProps> = ({ simplified }) => {
     const [category, setCategory] = useState('Cryptocurrency')
     const { data: news } = useGetCryptoNewsQuery({
         category,
@@ -41,15 +49,18 @@ const News = ({ simplified }) => {
                         placeholder="Тип крипты"
                         optionFilterProp="children"
                         onChange={value => setCategory(value)}
-                        filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase() >= 0)}
+                        filterOption={(input: string, option) => {
+                            return true
+                            // return option?.children?.toLowerCase().indexOf(input.toLowerCase() >= 0)
+                        }}
                     >
-                        <Option value="Cryptocurrency">Cryptocurrency</Option>
-                        {data?.data?.coins.map(({ name }) => <Option key={name} value={name}>{name}</Option>)}
+                        <Option value="Cryptocurrency">Криптовалюты</Option>
+                        {data?.data?.coins.map(({ name }: { name: string }) => <Option key={name} value={name}>{name}</Option>)}
                     </Select>
                 </Col>
             )}
-            {news.value.map((item, index) => (
-                <Col xs={24} sm={12} lg={8} key={index}>
+            {news.value.map((item: TNewsObject, index: number) => (
+                <Col xs={24} sm={12} lg={8} key={item.name}>
                     <Card hoverable className="news-card">
                         <a href={item.url} target="_blank" rel="noreferrer">
                             <div className="news-image-container">
@@ -57,7 +68,7 @@ const News = ({ simplified }) => {
                                 <img className="img" src={item?.image?.thumbnail?.contentUrl || fakeImg} alt="News preview" />
                             </div>
                             <p>
-                                {item.description > 100
+                                {item.description.length > 100
                                     ? `${item.description.substring(0, 100)} ...`
                                     : item.description
                                 }
@@ -67,7 +78,7 @@ const News = ({ simplified }) => {
                                     <Avatar src={item.provider[0]?.image?.thumbnail?.contentUrl || fakeImg} />
                                     <Text className="provider-name">{item.provider[0]?.name}</Text>
                                 </div>
-                                <Text>{moment(item.datePublished).startOf('ss').fromNow()}</Text>
+                                <Text>{moment(item.datePublished).fromNow()}</Text>
                             </div>
                         </a>
                     </Card>
