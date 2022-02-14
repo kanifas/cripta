@@ -45,15 +45,15 @@ const Details = () => {
         { title: '24h Volume', value: `$ ${details?.volume && millify(details?.volume)}`, icon: <ThunderboltOutlined /> },
         { title: 'Market Cap', value: `$ ${details?.marketCap && millify(details?.marketCap)}`, icon: <DollarCircleOutlined /> },
         { title: 'All-time-high(daily avg.)', value: `$ ${details?.allTimeHigh?.price && millify(details?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
-      ];
+    ];
     
-      const genericStats = [
+    const genericStats = [
         { title: 'Number Of Markets', value: details?.numberOfMarkets, icon: <FundOutlined /> },
         { title: 'Number Of Exchanges', value: details?.numberOfExchanges, icon: <MoneyCollectOutlined /> },
         { title: 'Aprroved Supply', value: details?.supply?.confirmed ? <CheckOutlined /> : <StopOutlined />, icon: <ExclamationCircleOutlined /> },
         { title: 'Total Supply', value: `$ ${details?.supply?.total && millify(details?.supply?.total)}`, icon: <ExclamationCircleOutlined /> },
         { title: 'Circulating Supply', value: `$ ${details?.supply?.circulating && millify(details?.supply?.circulating)}`, icon: <ExclamationCircleOutlined /> },
-      ];
+    ];
 
     return (
         <Col className="coin-detail-container">

@@ -12,7 +12,7 @@ import logo from '../images/logo.svg'
 
 const Navbar: FC = () => {
     const [activeMenu, setActiveMenu] = useState(true)
-    const [screenSize, setScreenSize] = useState(null as unknown as number)
+    const [screenSize, setScreenSize] = useState<number | null>(null)
 
     useEffect(() => {
         const handleResize = () => setScreenSize(window.innerWidth)
@@ -22,10 +22,12 @@ const Navbar: FC = () => {
     }, [])
 
     useEffect(() => {
-        if (screenSize < 800) {
-            setActiveMenu(false)
-        } else {
-            setActiveMenu(true)
+        if (screenSize !== null) {
+            if (screenSize < 800) {
+                setActiveMenu(false)
+            } else {
+                setActiveMenu(true)
+            }
         }
     }, [screenSize])
 
