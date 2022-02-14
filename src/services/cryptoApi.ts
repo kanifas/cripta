@@ -7,7 +7,12 @@ const cryptoApiHeaders = {
 
 const baseUrl = 'https://coinranking1.p.rapidapi.com'
 
-const createRequestHelper = url => ({ url, headers: cryptoApiHeaders })
+type TRequestHelper = {
+    url: string
+    headers: typeof cryptoApiHeaders
+}
+
+const createRequestHelper = (url: string): TRequestHelper => ({ url, headers: cryptoApiHeaders })
 
 export const cryptoApi = createApi({
     reducerPath: 'cryptoApi',

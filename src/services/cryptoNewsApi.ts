@@ -8,7 +8,12 @@ const cryptoNewsHeaders = {
 
 const baseUrl = 'https://bing-news-search1.p.rapidapi.com'
 
-const createRequestHelper = url => ({ url, headers: cryptoNewsHeaders })
+type TRequestHelper = {
+    url: string
+    headers: typeof cryptoNewsHeaders
+}
+
+const createRequestHelper = (url: string): TRequestHelper => ({ url, headers: cryptoNewsHeaders })
 
 export const cryptoNewsApi = createApi({
     reducerPath: 'cryptoNewsApi',

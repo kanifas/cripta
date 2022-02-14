@@ -3,7 +3,7 @@ import React from 'react';
 const Exchanges = () => {
     return (
         <div>
-            Exchanges
+            Мы еще работаем над этой страничкой 🥷
         </div>
     );
 };
